@@ -4,7 +4,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Hosts for deployment 
-  config.hosts << 'https://web-production-045a.up.railway.app'
+  config.hosts << 'web-production-045a.up.railway.app'
 
   # Code is not reloaded between requests.
   config.cache_classes = true

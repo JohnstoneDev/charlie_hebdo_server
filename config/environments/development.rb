@@ -4,7 +4,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Hosts for deployment 
-  config.hosts << 'https://web-production-045a.up.railway.app'
+  config.hosts << 'web-production-045a.up.railway.app'
   
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
