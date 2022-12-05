@@ -33,6 +33,10 @@ class ArticlesController < ApplicationController
 
 private
 
+    def article_params
+        Article.find_by(id: params[:id])
+    end
+
    def find_article
         Article.find_by(id: params[:id])
    end
