@@ -9,21 +9,36 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        article = Article.find_by(id: params[:id])
-        render json: article
+        article = find_article
+        #article = Article.find_by(id: params[:id])
+        render json: article, status: :ok
     end
 
     #update to take summary
     def update 
+        #article = find_article
+        #article.update(summary: params[:summary])
+        #render json: article, status: :accepted
         article = find_article
-        article.summary.update(summary: params[:summary])
+        #article = article.find_by(id: params[:id])
+        article.update(update_article_params)
         render json: article, status: :accepted
     end
 
     def destroy
         article = find_article
         article.destroy
-        render json: article, status: :no_content
+        head :no_content
     end
- 
+
+private
+
+   def find_article
+        Article.find_by(id: params[:id])
+   end
+
+    def update_article_params
+        params.permit(:summary)
+    end
+
 end
