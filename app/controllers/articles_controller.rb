@@ -10,17 +10,11 @@ class ArticlesController < ApplicationController
 
     def show
         article = find_article
-        #article = Article.find_by(id: params[:id])
         render json: article, status: :ok
     end
 
-    #update to take summary
-    def update 
-        #article = find_article
-        #article.update(summary: params[:summary])
-        #render json: article, status: :accepted
+    def update   
         article = find_article
-        #article = article.find_by(id: params[:id])
         article.update(update_article_params)
         render json: article, status: :accepted
     end
@@ -34,7 +28,7 @@ class ArticlesController < ApplicationController
 private
 
     def article_params
-        Article.find_by(id: params[:id])
+        params.permit(:title, :decription, :content, :url, :image, :source_name, :source_url, :user_id)
     end
 
    def find_article
