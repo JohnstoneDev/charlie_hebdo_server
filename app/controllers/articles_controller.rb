@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     def index
-        render json: Articles.all
+        render json: Article.all 
     end 
 
     def create
@@ -25,7 +25,12 @@ class ArticlesController < ApplicationController
         head :no_content
     end
 
-private
+    def summaries
+        articles = Article.all
+        render json: articles.each.to_json(only: [:id, :title, :description , :image, :source_name, :summary ])
+    end 
+
+    private
 
     def article_params
         params.permit(:title, :decription, :content, :url, :image, :source_name, :source_url, :user_id)

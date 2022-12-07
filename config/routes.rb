@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post '/articles', to: 'articles#create'
   get '/articles/:id', to: 'articles#show'
 
+  get '/summaries', to: 'articles#summaries'
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
