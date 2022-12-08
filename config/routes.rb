@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :articles
+  resources :users
 
   post '/signup', to: 'users#create'
   get '/profile', to: 'users#show'
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/articles', to: 'articles#index'
   post '/articles', to: 'articles#create'
   get '/articles/:id', to: 'articles#show'
+  patch '/articles/:id', to: 'articles#update'
+  delete '/articles/:id', to: 'articles#destroy'
 
   get '/summaries', to: 'articles#summaries'
 
