@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  # resources :users
 
   post '/signup', to: 'users#create'
   get '/profile', to: 'users#show'
