@@ -1,17 +1,41 @@
-# <strong> Rails API Template Repository </strong>
+# <strong> Charlie Hebdo News Server </strong>
 
-<h2> A template repository for rails API projects, configured with deployment options for <a href='railway.app'>railway.app</a>. </h2>
+<h2> A server application for a news website </h2>
 
-## Gems 
 
-* `active_model_serializer` to format the json responses. 
-* `pg` production gem for provisioning a postgres database. 
-* `foreman` optional gem that will allow deployment of a react app as a client side for the API. 
+## About 
 
-## Configuration 
+This API is set up to communicate with a client application for a news collection website. 
 
-* The template sets a fake asset pipeline for the Railway deployment in <strong>`lib/assets/tasks/fake-assets`</strong>.
-* In the `database.yml` file, sets the url for the database to use an env variable and the postgres adapter.
-* In the `production.rb` and `development.rb` files, sets the application hosts
-* Adds a `Procfile` with web starting options. 
+## Models 
 
+* User 
+* Article 
+
+## Database Associations 
+
+* A user `has_many` Articles. 
+* An article `belongs_to` a user.
+
+## Validations 
+
+* A user needs to have a `unique` name.
+* A user's password needs a `minimum length` of 8 characters. 
+* An article cannot be instantiated without a `user_id`
+
+## Dependencies 
+
+The most important dependencies are : 
+* active_model_serializers 
+* postgres gem to provision a production database 
+* rack-cors for CORS. 
+* Ruby version ^3.1.2
+* Rails version ^7.0.0
+
+other dependencies can be found in the `Gemfile` of the project and be installed by running `bundle install && bundle update` 
+
+## Running the project locally. 
+
+To run this project in a `development` environment or on a local machine, `clone` this repository, install the dependencies and run `rails s` to get a server running. 
+
+You are free to test the API endpoints with a suite of your choice, `Postman` is highly recommended. 
